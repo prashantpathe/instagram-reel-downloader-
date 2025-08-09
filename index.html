@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instagram Reel Downloader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      margin: 0; padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      background: white;
+      max-width: 400px;
+      width: 100%;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+      text-align: center;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #0073e6;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+    }
+    button:disabled {
+      background-color: #6c9bd1;
+      cursor: not-allowed;
+    }
+    .result {
+      margin-top: 15px;
+      font-size: 14px;
+      color: green;
+    }
+    .ads {
+      margin-top: 25px;
+      padding: 12px;
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+      color: #888;
+      font-size: 14px;
+    }
+    .upi-donate {
+      margin-top: 20px;
+      background: #4caf50;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Instagram Reel Downloader</h2>
+    <input type="text" id="reelUrl" placeholder="Instagram reel URL yahan paste karo" />
+    <button id="downloadBtn">Download Link Pao</button>
+    <div class="result" id="result"></div>
+
+    <div class="ads" id="adsPlaceholder">
+      AdSense ad yahan lagega (approval ke baad code paste karein)
+    </div>
+
+    <a href="upi://pay?pa=prashantpathe07@oksbi&pn=Prashant%20Pawar&cu=INR" class="upi-donate" target="_blank" rel="noopener noreferrer">
+      Donate via UPI
+    </a>
+  </div>
+
+  <script>
+    const btn = document.getElementById('downloadBtn');
+    const input = document.getElementById('reelUrl');
+    const result = document.getElementById('result');
+
+    btn.addEventListener('click', () => {
+      const url = input.value.trim();
+      if (!url) {
+        result.style.color = 'red';
+        result.textContent = 'Pehle Instagram reel URL daalo.';
+        return;
+      }
+      result.style.color = 'black';
+      result.textContent = 'Processing...';
+
+      // Demo response - yahan backend call lagega
+      setTimeout(() => {
+        // Demo: direct download link nahi generate karta abhi
+        result.style.color = 'green';
+        result.innerHTML = `
+          Download link generate karne ke liye backend API ki jarurat hai.<br />
+          Abhi demo mode hai.
+        `;
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
